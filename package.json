@@ -1,6 +1,6 @@
 {
   "name": "binance-nodejs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Binance.com NodeJS v3 REST API",
   "main": "./lib/index.js",
   "license": "MIT",
