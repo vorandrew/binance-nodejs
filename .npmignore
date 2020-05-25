@@ -1,0 +1,4 @@
+*
+!/lib/**
+/lib/**/*.test.js
+!/package.json

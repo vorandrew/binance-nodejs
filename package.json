@@ -1,0 +1,115 @@
+{
+  "name": "binance-nodejs",
+  "version": "2.0.0",
+  "description": "Binance.com NodeJS v3 REST API",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf ./lib",
+    "build": "babel src -d lib",
+    "test": "jest src --forceExit --silent -i -b",
+    "tdd": "DEBUG=binance:api:rest jest src --watch -i",
+    "lint": "eslint src",
+    "prepare": "yarn build",
+    "precommit": "yarn lint",
+    "prepush": "yarn test",
+    "preversion": "yarn test",
+    "version": "yarn build",
+    "postversion": "git push && git push --tags"
+  },
+  "jest": {
+    "roots": [
+      "src"
+    ],
+    "testEnvironment": "node"
+  },
+  "eslintConfig": {
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true
+    },
+    "extends": [
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "allowImportExportEverywhere": false,
+      "codeFrame": false,
+      "impliedStrict": true
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "arrowParens": "avoid",
+          "semi": false,
+          "singleQuote": true,
+          "printWidth": 120,
+          "tabWidth": 2
+        }
+      ]
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "debug": "^3.2.6",
+    "got": "^10.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
+    "debug": "*",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^26.0.1",
+    "moment": "^2.24.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/santacruz123/binance-nodejs.git"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/santacruz123/binance-nodejs/issues"
+  },
+  "homepage": "https://github.com/santacruz123/binance-nodejs#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "binance",
+    "nodejs",
+    "v3"
+  ],
+  "author": "Andrey Vorobyov <vorandrew@gmail.com>"
+}
